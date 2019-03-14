@@ -51,7 +51,7 @@ filter1 = commands.Read.Filter('newer-than', 'date', date).getFilter()
 filter2 = commands.Read.Filter(None, None, task).getFilter()
 
 xml_data = []
-xml_data.append(commands.Read('Task', 'equal to', {'limit': '1000'}, [filter1, filter2], ['id', 'timesheetid']).read())
+xml_data.append(commands.Read('Task', 'equal to', {'limit': '1000'}, [filter1, filter2], None, ['id', 'timesheetid']).read())
 xml_req = connections.Request(app, auth, xml_data).tostring()
 
 req = urllib2.Request(url='https://www.openair.com/api.pl', data=xml_req)
