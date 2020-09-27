@@ -45,10 +45,10 @@ class TestReportClass(unittest.TestCase):
         )
         self.assertEqual(
             commands.Report('Timesheet', report).tostring(),
-            (
+            ET.canonicalize(
                 b'<Report type="Timesheet"><Timesheet><relatedid>1286</relatedid>'
                 b'<email_report>1</email_report></Timesheet></Report>'
-            )
+            ).encode("utf-8")
         )
 
     def test_prettify(self):

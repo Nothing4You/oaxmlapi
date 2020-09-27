@@ -35,7 +35,12 @@ class _Base(object):
         if self._main() is not None:
             body = ET.tostring(self._main(), 'utf-8')
 
-        return (header if header else b'') + (body if body else b'')
+        xml_str = (header if header else b'') + (body if body else b'')
+
+        if not body:
+            return xml_str
+
+        return ET.canonicalize(xml_str).encode("utf-8")
 
     def prettify(self):
         """

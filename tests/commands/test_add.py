@@ -35,10 +35,10 @@ class TestAddClass(unittest.TestCase):
         )
         self.assertEqual(
             commands.Add('Project', {}, project).tostring(),
-            (
+            ET.canonicalize(
                 b'<Add type="Project"><Project><name>New project</name>'
                 b'</Project></Add>'
-            )
+            ).encode("utf-8")
         )
 
     def test_tostring_enable_custom(self):
@@ -48,10 +48,10 @@ class TestAddClass(unittest.TestCase):
         )
         self.assertEqual(
             commands.Add('Project', {'enable_custom': '1'}, project).tostring(),
-            (
+            ET.canonicalize(
                 b'<Add enable_custom="1" type="Project"><Project><name>'
                 b'New project</name></Project></Add>'
-            )
+            ).encode("utf-8")
         )
 
     def test_prettify(self):

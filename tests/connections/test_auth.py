@@ -23,7 +23,7 @@ class TestAuthClass(unittest.TestCase):
     def test_tostring(self):
         self.assertEqual(
             connections.Auth('company', 'username', 'p@ssw0rd').tostring(),
-            b'<Auth><Login><company>company</company><user>username</user><password>p@ssw0rd</password></Login></Auth>'
+            ET.canonicalize(b'<Auth><Login><company>company</company><user>username</user><password>p@ssw0rd</password></Login></Auth>').encode("utf-8")
         )
 
     def test_prettify(self):

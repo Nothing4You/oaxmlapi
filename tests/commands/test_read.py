@@ -47,7 +47,7 @@ class TestReadClass(unittest.TestCase):
         )
         self.assertEqual(
             read.tostring(),
-            b'<Read limit="0, 1000" method="all" type="Slip" />'
+            ET.canonicalize(b'<Read limit="0, 1000" method="all" type="Slip" />').encode("utf-8")
         )
 
     def test_tostring_filter_datatype(self):
@@ -72,10 +72,10 @@ class TestReadClass(unittest.TestCase):
         )
         self.assertEqual(
             read.tostring(),
-            (
+            ET.canonicalize(
                 b'<Read limit="0, 1000" method="equal to" type="Slip">'
                 b'<Slip><customerid>7</customerid></Slip></Read>'
-            )
+            ).encode("utf-8")
         )
 
     def test_tostring_filter_field(self):
@@ -100,11 +100,11 @@ class TestReadClass(unittest.TestCase):
         )
         self.assertEqual(
             read.tostring(),
-            (
+            ET.canonicalize(
                 b'<Read field="date" filter="older-than" limit="0, 1000" '
                 b'method="equal to" type="Slip"><Date><year>2013</year>'
                 b'</Date></Read>'
-            )
+            ).encode("utf-8")
         )
 
     def test_tostring_orderby(self):
@@ -118,9 +118,9 @@ class TestReadClass(unittest.TestCase):
         )
         self.assertEqual(
             read.tostring(),
-            (
+            ET.canonicalize(
                 b'<Read limit="0, 1000" method="all" order="created,desc" type="Slip" />'
-            )
+            ).encode("utf-8")
         )
 
     def test_tostring_fields(self):
@@ -134,10 +134,10 @@ class TestReadClass(unittest.TestCase):
         )
         self.assertEqual(
             read.tostring(),
-            (
+            ET.canonicalize(
                 b'<Read limit="0, 1000" method="all" type="Slip"><_Return>'
                 b'<id /></_Return></Read>'
-            )
+            ).encode("utf-8")
         )
 
     def test_prettify(self):

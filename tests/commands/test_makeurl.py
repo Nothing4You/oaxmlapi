@@ -25,19 +25,19 @@ class TestMakeUrlClass(unittest.TestCase):
     def test_tostring_no_arg(self):
         self.assertEqual(
             commands.MakeURL('1', 'currency-rates', 'ma', {}).tostring(),
-            (
+            ET.canonicalize(
                 b'<MakeURL><uid>1</uid><page>currency-rates</page><app>ma</app></MakeURL>'
-            )
+            ).encode("utf-8")
         )
 
     def test_tostring_arg(self):
         timesheet = datatypes.Datatype('Timesheet', {'id': '1245'})
         self.assertEqual(
             commands.MakeURL('1', 'grid-timesheet', 'ta', timesheet).tostring(),
-            (
+            ET.canonicalize(
                 b'<MakeURL><arg><Timesheet><id>1245</id></Timesheet></arg>'
                 b'<uid>1</uid><page>grid-timesheet</page><app>ta</app></MakeURL>'
-            )
+            ).encode("utf-8")
         )
 
     def test_prettify(self):

@@ -35,7 +35,7 @@ class TestModifyClass(unittest.TestCase):
         )
         self.assertEqual(
             commands.Modify('Slip', {'enable_custom': '1'}, slip).tostring(),
-            b'<Modify enable_custom="1" type="Slip"><Slip><id>1234</id></Slip></Modify>'
+            ET.canonicalize(b'<Modify enable_custom="1" type="Slip"><Slip><id>1234</id></Slip></Modify>').encode("utf-8")
         )
 
     def test_prettify(self):

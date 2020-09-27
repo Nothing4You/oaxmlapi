@@ -23,10 +23,10 @@ class TestRemoteAuthClass(unittest.TestCase):
     def test_tostring(self):
         self.assertEqual(
             connections.RemoteAuth('company', 'username', 'p@ssw0rd').tostring(),
-            (
+            ET.canonicalize(
             b'<RemoteAuth><Login><company>company</company><user>username</user>'
             b'<password>p@ssw0rd</password></Login></RemoteAuth>'
-            )
+            ).encode("utf-8")
         )
 
     def test_prettify(self):

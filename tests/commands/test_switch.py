@@ -45,9 +45,9 @@ class TestSwitchClass(unittest.TestCase):
         )
         self.assertEqual(
             commands.Switch('User', flag).tostring(),
-            (
+            ET.canonicalize(
                 b'<User><flags><Flag><setting>1</setting></Flag></flags></User>'
-            )
+            ).encode("utf-8")
         )
 
     def test_prettify(self):

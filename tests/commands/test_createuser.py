@@ -47,12 +47,12 @@ class TestCreateUserClass(unittest.TestCase):
         )
         self.assertEqual(
             commands.CreateUser(company, user).tostring(),
-            (
+            ET.canonicalize(
                 b'<CreateUser><Company><nickname>Acme Inc</nickname></Company>'
                 b'<User><nickname>admin</nickname><password>p@ssw0rd</password>'
                 b'<addr><Address><email>admin@acme.com</email></Address></addr>'
                 b'</User></CreateUser>'
-            )
+            ).encode("utf-8")
         )
 
     def test_prettify(self):

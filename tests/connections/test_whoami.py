@@ -36,7 +36,7 @@ class TestWhoamiClass(unittest.TestCase):
         user = datatypes.Datatype('User', {'id': '1234'})
         self.assertEqual(
             connections.Whoami(user).tostring(),
-            b'<Whoami><User><id>1234</id></User></Whoami>'
+            ET.canonicalize(b'<Whoami><User><id>1234</id></User></Whoami>').encode("utf-8")
         )
 
     def test_prettify(self):

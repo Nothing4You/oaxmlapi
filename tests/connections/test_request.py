@@ -32,14 +32,14 @@ class TestRequestClass(unittest.TestCase):
         time = [commands.Time().time()]
         self.assertEqual(
             connections.Request(app, auth, time).tostring(),
-            (
+            ET.canonicalize(
                 b'<?xml version="1.0" encoding="utf-8"?>'
                 b'<request API_ver="1.0" client="test" client_ver="1.0" '
                 b'key="abc123" namespace="default"><Auth><Login>'
                 b'<company>company</company><user>username</user>'
                 b'<password>p@ssw0rd</password></Login></Auth>'
                 b'<Time /></request>'
-            )
+            ).encode("utf-8")
         )
 
     def test_tostring_remoteauth(self):
@@ -48,14 +48,14 @@ class TestRequestClass(unittest.TestCase):
         time = [commands.Time().time()]
         self.assertEqual(
             connections.Request(app, remoteauth, time).tostring(),
-            (
+            ET.canonicalize(
                 b'<?xml version="1.0" encoding="utf-8"?>'
                 b'<request API_ver="1.0" client="test" client_ver="1.0" '
                 b'key="abc123" namespace="default"><RemoteAuth><Login>'
                 b'<company>company</company><user>username</user>'
                 b'<password>p@ssw0rd</password></Login></RemoteAuth>'
                 b'<Time /></request>'
-            )
+            ).encode("utf-8")
         )
 
     def test_tostring_noauth(self):
@@ -70,13 +70,13 @@ class TestRequestClass(unittest.TestCase):
         auth = connections.Auth('company', 'username', 'p@ssw0rd')
         self.assertEqual(
             connections.Request(app, auth, None).tostring(),
-            (
+            ET.canonicalize(
                 b'<?xml version="1.0" encoding="utf-8"?>'
                 b'<request API_ver="1.0" client="test" client_ver="1.0" '
                 b'key="abc123" namespace="default"><Auth><Login>'
                 b'<company>company</company><user>username</user>'
                 b'<password>p@ssw0rd</password></Login></Auth></request>'
-            )
+            ).encode("utf-8")
         )
 
     def test_prettify(self):

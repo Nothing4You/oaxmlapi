@@ -35,7 +35,7 @@ class TestDeleteClass(unittest.TestCase):
         )
         self.assertEqual(
             commands.Delete('Slip', slip).tostring(),
-            b'<Delete type="Slip"><Slip><id>1234</id></Slip></Delete>'
+            ET.canonicalize(b'<Delete type="Slip"><Slip><id>1234</id></Slip></Delete>').encode("utf-8")
         )
 
     def test_prettify(self):

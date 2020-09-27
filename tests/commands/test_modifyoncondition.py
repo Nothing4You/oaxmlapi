@@ -47,11 +47,11 @@ class TestModifyOnConditionClass(unittest.TestCase):
         )
         self.assertEqual(
             commands.ModifyOnCondition('Slip', slip, date).tostring(),
-            (
+            ET.canonicalize(
                 b'<ModifyOnCondition condition="if-not-updated" type="Slip">'
                 b'<Slip><id>1234</id></Slip><Date><year>2012</year></Date>'
                 b'</ModifyOnCondition>'
-            )
+            ).encode("utf-8")
         )
 
     def test_prettify(self):

@@ -27,13 +27,13 @@ class TestErrorClass(unittest.TestCase):
         app = connections.Application('test', '1.0', 'default', 'abc123')
         self.assertEqual(
             connections.Error(app, '201').tostring(),
-            (
+            ET.canonicalize(
                 b'<?xml version="1.0" encoding="utf-8"?>'
                 b'<request API_ver="1.0" client="test" client_ver="1.0" '
                 b'key="abc123" namespace="default"><Read method="equal to" '
                 b'type="Error"><Error><code>201</code></Error></Read>'
                 b'</request>'
-            )
+            ).encode("utf-8")
         )
 
     def test_prettify(self):

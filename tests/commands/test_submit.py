@@ -47,10 +47,10 @@ class TestSubmitClass(unittest.TestCase):
         )
         self.assertEqual(
             commands.Submit('Timesheet', timesheet, approval).tostring(),
-            (
+            ET.canonicalize(
                 b'<Submit type="Timesheet"><Timesheet><id>476</id>'
                 b'</Timesheet><Approval /></Submit>'
-            )
+            ).encode("utf-8")
         )
 
     def test_prettify(self):

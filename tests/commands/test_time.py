@@ -23,7 +23,7 @@ class TestTimeClass(unittest.TestCase):
     def test_tostring(self):
         self.assertEqual(
             commands.Time().tostring(),
-            b'<Time />'
+            ET.canonicalize(b'<Time />').encode("utf-8")
         )
 
     def test_prettify(self):

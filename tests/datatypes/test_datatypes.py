@@ -28,24 +28,24 @@ class TestDatatypesClass(unittest.TestCase):
                     'month': '03'
                 }
             ).tostring(),
-            b'<Date><month>03</month></Date>'
+            ET.canonicalize(b'<Date><month>03</month></Date>').encode("utf-8")
         )
 
     def test_tostring_filter(self):
         cust_filter = datatypes.Datatype('Filter', {'id': '1'})
         self.assertEqual(
             cust_filter.tostring(),
-            b'<Filter type="customer"><id>1</id></Filter>'
+            ET.canonicalize(b'<Filter type="customer"><id>1</id></Filter>').encode("utf-8")
         )
 
     def test_tostring_addr(self):
         contact = datatypes.Datatype('Contact', {'name': 'John Doe', 'email': 'john.doe@email.com'})
         self.assertEqual(
             contact.tostring(),
-            (
+            ET.canonicalize(
             b'<Contact><name>John Doe</name><addr><Address>'
             b'<email>john.doe@email.com</email></Address></addr></Contact>'
-            )
+            ).encode("utf-8")
         )
 
     def test_tostring_embedded(self):
@@ -63,7 +63,7 @@ class TestDatatypesClass(unittest.TestCase):
         )
         self.assertEqual(
             task.tostring(),
-            b'<Task><date><Date><month>03</month></Date></date></Task>'
+            ET.canonicalize(b'<Task><date><Date><month>03</month></Date></date></Task>').encode("utf-8")
         )
 
     def test_prettify(self):
