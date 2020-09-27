@@ -5,10 +5,7 @@
 from __future__ import absolute_import
 from xml.dom import minidom
 
-try:
-    import xml.etree.cElementTree as ET
-except ImportError:
-    import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ET
 
 
 class _Base(object):

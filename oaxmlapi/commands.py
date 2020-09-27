@@ -4,10 +4,7 @@
 
 from __future__ import absolute_import
 
-try:
-    import xml.etree.cElementTree as ET
-except ImportError:
-    import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ET
 
 from oaxmlapi.base import _Base
 from oaxmlapi.utilities import (READ_METHODS, REPORT_TYPES, SUBMIT_TYPES,

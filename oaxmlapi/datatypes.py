@@ -5,10 +5,7 @@ objects and tags.
 
 from __future__ import absolute_import, print_function
 
-try:
-    import xml.etree.cElementTree as ET
-except ImportError:
-    import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ET
 
 from oaxmlapi.base import _Base
 from oaxmlapi.utilities import ADDRESS_FIELDS

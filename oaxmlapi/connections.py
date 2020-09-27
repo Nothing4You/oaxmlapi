@@ -6,10 +6,7 @@ allows for the storage of login information for authentication.
 
 from __future__ import absolute_import, print_function
 
-try:
-    import xml.etree.cElementTree as ET
-except ImportError:
-    import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ET
 
 from oaxmlapi.base import _Base
 from oaxmlapi.datatypes import Datatype

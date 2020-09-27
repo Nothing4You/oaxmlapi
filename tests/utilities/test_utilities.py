@@ -3,10 +3,7 @@ from __future__ import absolute_import, print_function
 import unittest
 from oaxmlapi import utilities
 
-try:
-    import xml.etree.cElementTree as ET
-except ImportError:
-    import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ET
 
 
 class TestUtilitiesClass(unittest.TestCase):

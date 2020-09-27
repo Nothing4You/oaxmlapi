@@ -5,10 +5,7 @@ with XML.
 
 import json
 
-try:
-    import xml.etree.cElementTree as ET
-except ImportError:
-    import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ET
 
 
 ADDRESS_FIELDS = ('first', 'middle', 'last', 'salutation', 'email', 'phone',
