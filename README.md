@@ -1,12 +1,12 @@
 # oaxmlapi
 
-![PyPI](https://img.shields.io/pypi/23maverick23/oaxmlapi.svg) ![Codecov](https://img.shields.io/codecov/c/github/23maverick23/oaxmlapi.svg) ![Travis](https://img.shields.io/travis/23maverick23/oaxmlapi.svg) ![license](https://img.shields.io/github/license/23maverick23/oaxmlapi.svg) ![GitHub top language](https://img.shields.io/github/languages/top/23maverick23/oaxmlapi.svg) ![OpenAir release](https://img.shields.io/badge/OpenAir%20Release-2018.1-green.svg)
+![Codecov](https://img.shields.io/codecov/c/github/Nothing4You/oaxmlapi.svg) ![license](https://img.shields.io/github/license/Nothing4You/oaxmlapi.svg) ![GitHub top language](https://img.shields.io/github/languages/top/Nothing4You/oaxmlapi.svg) ![OpenAir release](https://img.shields.io/badge/OpenAir%20Release-2018.1-green.svg)
 
 ## DESCRIPTION
 oaxmlapi is a Python wrapper around the NetSuite OpenAir XML API. It allows for easier interaction with the XML version of the OpenAir API and reduces the need to generate raw XML. The library is written entirely in Python and utilizes the etree.ElementTree library for producing pre-formatted XML tags and attributes for use in your API requests.
 
 ## REQUIREMENTS
-* Python 2.7, 3.5, 3.6
+* Python 3.8+
 * coverage [view source](https://bitbucket.org/ned/coveragepy)
 * codecov [view source](https://github.com/codecov/codecov-python)
 
@@ -18,11 +18,11 @@ Coming soon!
 
 ### Manual
 
-For Windows, download the latest build [here](https://github.com/23maverick23/oaxmlapi/archive/master.zip) as archive. Unpack the archive and run `python setup.py install` inside the root directory.
+For Windows, download the latest build [here](https://github.com/Nothing4You/oaxmlapi/archive/master.zip) as archive. Unpack the archive and run `python setup.py install` inside the root directory.
 
 For Linux and Mac OSX, you can use Terminal/iTerm to download, unpack and install.
 ```bash
-$ curl -LOk https://github.com/23maverick23/oaxmlapi/archive/master.zip
+$ curl -LOk https://github.com/Nothing4You/oaxmlapi/archive/master.zip
 $ unzip master.zip
 $ cd oaxmlapi-master
 $ sudo python setup.py install
@@ -59,3 +59,4 @@ req = urllib2.Request(url='https://www.openair.com/api.pl', data=xml_req)
 
 ## AUTHORS
 Ryan Morrissey - [ryancmorrissey.com](https://ryancmorrissey.com/)
+Richard Schwab
